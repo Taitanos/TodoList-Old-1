@@ -8,6 +8,8 @@ export type TaskType = {
     isDone: boolean
 }
 
+export type FilterValueType = "all" | "active" | "completed";
+
 function App() {
     let [tasks, setTasks] = useState( [
         {id:1, title:"JS", isDone: true},
@@ -24,7 +26,7 @@ function App() {
 
     }
 
-    let [filter, setFilter] = useState<"all" | "active" | "completed"> ("all");
+    let [filter, setFilter] = useState<FilterValueType> ("all");
 
     let tasksForTodolist = tasks;
 
@@ -35,7 +37,7 @@ function App() {
         tasksForTodolist = tasks.filter(t => t.isDone === true);
     }
 
-    function changeFilter(value: "all" | "active" | "completed") {
+    function changeFilter(value: FilterValueType) {
         setFilter(value);
     }
 
