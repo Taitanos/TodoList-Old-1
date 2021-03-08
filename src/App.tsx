@@ -11,22 +11,22 @@ export type TaskType = {
 export type FilterValueType = "all" | "active" | "completed";
 
 function App() {
-    let [tasks, setTasks] = useState( [
-        {id:1, title:"JS", isDone: true},
-        {id:2, title:"CSS", isDone: true},
-        {id:3, title:"React", isDone: false},
-        {id:4, title:"Rest API", isDone: false},
-        {id:5, title:"GraphQL", isDone: false}
+    let [tasks, setTasks] = useState([
+        {id: 1, title: "JS", isDone: true},
+        {id: 2, title: "CSS", isDone: true},
+        {id: 3, title: "React", isDone: false},
+        {id: 4, title: "Rest API", isDone: false},
+        {id: 5, title: "GraphQL", isDone: false}
 
     ])
 
-    function removeTask(id:number) {
+    function removeTask(id: number) {
         let filteredTasks = tasks.filter(t => t.id !== id);
         setTasks(filteredTasks);
 
     }
 
-    let [filter, setFilter] = useState<FilterValueType> ("all");
+    let [filter, setFilter] = useState<FilterValueType>("all");
 
     let tasksForTodolist = tasks;
 
