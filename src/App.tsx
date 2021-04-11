@@ -1,14 +1,20 @@
 import React, {useState} from 'react';
 import './App.css';
-import TodoList, {TaskType} from "./TodoList";
-import { v1 } from 'uuid';
+import {v1} from 'uuid';
+import TodoList from "./TodoList";
 
 export type FilterValueType = "all" | "active" | "completed";
+
+export type TaskType = {
+    id: string
+    title: string
+    isDone: boolean
+}
 
 function App() {
     // CRUD - Create, Read, Update, Delete
     // BLL: business logic layer
-    let [tasks, setTasks] = useState< Array<TaskType> >([
+    let [tasks, setTasks] = useState<Array<TaskType>>([
         {id: v1(), title: "JS", isDone: true},
         {id: v1(), title: "CSS", isDone: true},
         {id: v1(), title: "React", isDone: false},
@@ -37,13 +43,13 @@ function App() {
     }
 
     function addTask(taskTitle: string) {
-/*        const newTask: TaskType = {  // длинная записть создания новой таски
-            id: v1(),
-            title: taskTitle,
-            isDone: false
-        }
-        const updatedTasks = [newTask, ...tasks]
-        setTasks(updatedTasks)*/
+        /*        const newTask: TaskType = {  // длинная записть создания новой таски
+                    id: v1(),
+                    title: taskTitle,
+                    isDone: false
+                }
+                const updatedTasks = [newTask, ...tasks]
+                setTasks(updatedTasks)*/
 
         setTasks([{   // короткая запись создания таски
             id: v1(),
@@ -54,12 +60,12 @@ function App() {
     }
 
 
-
     // UI: user interface
     return (
         <div className="App">
             <TodoList title={"What to learn"}
                       tasks={tasksForTodolist}
+                      addTask={addTask}
                       removeTask={removeTask}
                       changeFilter={changeFilter}
             />
