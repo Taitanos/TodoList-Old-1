@@ -22,7 +22,7 @@ function TodoList(props: TodoListPropsType) {
         )
     })
 
-    // const all = () => props.changeFilter("all")
+    const all = () => props.changeFilter("all")
 
 
     return (

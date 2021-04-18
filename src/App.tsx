@@ -3,13 +3,13 @@ import './App.css';
 import {v1} from 'uuid';
 import TodoList from "./TodoList";
 
-export type FilterValueType = "all" | "active" | "completed";
-
 export type TaskType = {
     id: string
     title: string
     isDone: boolean
 }
+
+export type FilterValueType = "all" | "active" | "completed";
 
 function App() {
     // CRUD - Create, Read, Update, Delete
@@ -30,7 +30,7 @@ function App() {
 
     }
 
-    let tasksForTodolist = tasks;
+    let tasksForTodolist = tasks
     if (filter === "active") {
         tasksForTodolist = tasks.filter(t => !t.isDone);
     }
