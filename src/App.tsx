@@ -13,6 +13,7 @@ export type FilterValueType = "all" | "active" | "completed";
 
 function App() {
     // CRUD - Create, Read, Update, Delete
+
     // BLL: business logic layer
     let [tasks, setTasks] = useState<Array<TaskType>>([
         {id: v1(), title: "JS", isDone: true},
@@ -27,7 +28,6 @@ function App() {
     function removeTask(id: string) {
         let filteredTasks = tasks.filter(t => t.id !== id);
         setTasks(filteredTasks);
-
     }
 
     let tasksForTodolist = tasks
@@ -56,7 +56,6 @@ function App() {
             title: taskTitle,
             isDone: false
         }, ...tasks])
-
     }
 
 
